@@ -8,25 +8,25 @@ function Product_Images({ current_product }) {
 
     return (
 
-        <div className="product-image-box h-[30rem] w-[30%] flex items-center justify-evenly gap-3">
+        <div className="product-image-box h-auto w-1/2 flex flex-col items-center justify-center gap-3">
 
-            <div className="sub-images h-full w-[5rem] flex flex-col items-center justify-start gap-3">
+            <div className="main-image h-full w-full p-5 bg-white flex items-center justify-center rounded-2xl shadow-xl">
+
+                <img className="rounded-2xl h-auto w-1/2" src={main_image ? main_image : current_product.product_image} alt="Image Not Available" />
+
+            </div>
+
+            <div className="sub-images h-full w-full flex items-center justify-center gap-3">
 
                 {
 
                     sub_images.map((img, idx) => (
 
-                        <img key={idx} className="rounded-2xl sub-image h-[5rem] w-auto cursor-pointer" src={img} alt="Image Not Available" onClick={() => set_main_image(img)} />
+                        <img key={idx} className={`rounded-2xl border-2 sub-image h-[7rem] w-auto cursor-pointer overflow-auto ${main_image === img ? "border-red-500" : "border"} hover:border-gray-500`} src={img} alt="Image Not Available" onClick={() => set_main_image(img)} />
 
                     ))
 
                 }
-
-            </div>
-
-            <div className="main-image h-full w-auto">
-
-                <img className="rounded-2xl h-full w-auto" src={main_image ? main_image : current_product.product_image} alt="Image Not Available" />
 
             </div>
 

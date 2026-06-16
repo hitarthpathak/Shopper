@@ -9,7 +9,7 @@ function Cart() {
 
     return (
 
-        <div className={`min-h-[30rem] w-full m-auto ${light_mode ? "bg-red-100" : "bg-red-300"} flex items-start justify-center gap-5 p-10`}>
+        <div className={`cart-box flex-grow h-full w-full m-auto ${light_mode ? "bg-gray-100" : "bg-gray-300 text-black"} flex items-start justify-between gap-10 p-10`}>
 
             <Cart_List />
 

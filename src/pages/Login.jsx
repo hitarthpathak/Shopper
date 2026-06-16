@@ -31,29 +31,29 @@ function Login() {
 
     return (
 
-        <div className={`min-h-[30rem] w-full ${light_mode ? "bg-red-100" : "bg-red-300"} p-14`}>
+        <div className={`login-box flex-grow h-full w-full p-14 ${light_mode ? "bg-gray-100" : "bg-gray-300 text-black"}`}>
 
             <h1 className="text-center text-3xl mb-7">Login Page</h1>
 
-            <form className="login-form rounded-lg h-auto w-1/2 m-auto p-7 bg-blue-700 flex flex-col items-center justify-center gap-5" onSubmit={handleSubmit(form_submit)}>
+            <form className="login-form rounded-3xl h-auto w-1/2 m-auto p-7 bg-white flex flex-col items-center justify-center gap-5 shadow-xl" onSubmit={handleSubmit(form_submit)}>
 
                 <div className="h-auto w-full">
 
-                    <input className={`rounded-lg outline-none h-auto w-full p-2 ${light_mode ? "text-black" : "text-black"}`} type="text" placeholder="Enter Your E-Mail" {...register("e_mail", { required: "E-Mail Is Required!", pattern: { value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, message: "Invalid E-Mail!" } })} />
+                    <input className={`rounded-full outline-none h-auto w-full p-3 bg-gray-100 ${light_mode ? "text-black" : "text-black"}`} type="text" placeholder="Enter Your E-Mail" {...register("e_mail", { required: "E-Mail Is Required!", pattern: { value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, message: "Invalid E-Mail!" } })} />
                     {errors.e_mail && (<p className="font-bold text-red-500">{errors["e_mail"].message}</p>)}
 
                 </div>
 
                 <div className="h-auto w-full">
 
-                    <input className={`rounded-lg outline-none h-auto w-full p-2 ${light_mode ? "text-black" : "text-black"}`} type="password" placeholder="Enter Your Password" {...register("password", { required: "Password Is Required!" })} />
+                    <input className={`rounded-full outline-none h-auto w-full p-3 bg-gray-100 ${light_mode ? "text-black" : "text-black"}`} type="password" placeholder="Enter Your Password" {...register("password", { required: "Password Is Required!" })} />
                     {errors.password && (<p className="font-bold text-red-500">{errors["password"].message}</p>)}
 
                 </div>
 
-                <input className="rounded-lg h-auto w-full p-2 bg-red-500 hover:bg-red-600 cursor-pointer" type="submit" value="Login" />
+                <input className="rounded-full h-auto w-full p-3 bg-blue-700 text-white cursor-pointer" type="submit" value="Login" />
 
-                <p>Don't Have An Account? <Link to={"/register"} className="hover:underline">Register Now!</Link></p>
+                <p>Don't Have An Account? <Link to={"/register"} className="hover:underline hover:text-blue-500">Register Now!</Link></p>
 
             </form>
 

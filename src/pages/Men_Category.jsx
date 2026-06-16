@@ -13,15 +13,15 @@ function Men_Category({ category }) {
 
     return (
 
-        <div className={`men-category-box p-5 ${light_mode ? "bg-red-100" : "bg-red-300"}`}>
+        <div className={`men-category-box flex-grow h-full w-full p-5 ${light_mode ? "bg-gray-100" : "bg-gray-300"}`}>
 
             <div className="banner">
 
-                <img className="rounded-lg h-auto w-auto m-auto mb-5" src={Men_Banner} alt="Image Not Available" />
+                <img className="rounded-lg h-auto w-auto m-auto my-7" src={Men_Banner} alt="Image Not Available" />
 
             </div>
 
-            <div className="products-list flex flex-wrap items-center justify-between gap-2">
+            <div className="products-list p-5 flex flex-wrap items-center justify-evenly gap-5">
 
                 {
 
@@ -35,7 +35,7 @@ function Men_Category({ category }) {
 
                                 <Link to={`/product-details/${product.id}`} key={product.id}>
 
-                                    <div className="product-box rounded-lg h-auto w-[20rem] bg-blue-700 text-white p-5 flex flex-col items-center justify-center gap-5">
+                                    <div className="product-box rounded-lg h-auto w-[20rem] bg-white text-black p-5 flex flex-col items-center justify-center gap-5 shadow-soft transition hover:-translate-y-2 hover:shadow-2xl">
 
                                         <img className="rounded-lg h-[20rem]" src={product.product_image} alt="Image Not Available" />
 

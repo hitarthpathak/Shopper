@@ -54,47 +54,51 @@ function App() {
 
   return (
 
-    <>
+    <div className="flex flex-col min-h-screen">
 
       <Context_API.Provider value={{ light_mode, set_light_mode, product_data, is_logged_in, set_is_logged_in, logged_in_user, set_logged_in_user, shopper_users, set_shopper_users, cart, set_cart }}>
 
         <Navbar />
 
-        <Routes>
+        <div className="flex flex-col flex-grow">
 
-          <Route path="/" element={<Home />} />
+          <Routes>
 
-          <Route path="/men-category" element={<Men_Category category="men" />} />
+            <Route path="/" element={<Home />} />
 
-          <Route path="/women-category" element={<Women_Category category="women" />} />
+            <Route path="/men-category" element={<Men_Category category="men" />} />
 
-          <Route path="/kids-category" element={<Kids_Category category="kids" />} />
+            <Route path="/women-category" element={<Women_Category category="women" />} />
 
-          <Route path="/cart" element={<Cart />} />
+            <Route path="/kids-category" element={<Kids_Category category="kids" />} />
 
-          <Route path="/login" element={<Login />} />
+            <Route path="/cart" element={<Cart />} />
 
-          <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
 
-          <Route path="/new-collections" element={<New_Collections />} />
+            <Route path="/register" element={<Register />} />
 
-          <Route path="/product-details/:product_id" element={<Product_Details />} />
+            <Route path="/new-collections" element={<New_Collections />} />
 
-          <Route path="*"
-            element={
-              <div className="min-h-[30rem] w-full flex items-center justify-center">
-                <h1 className="text-3xl">404 Page Not Found!</h1>
-              </div>
-            }
-          />
+            <Route path="/product-details/:product_id" element={<Product_Details />} />
 
-        </Routes>
+            <Route path="*"
+              element={
+                <div className="404-page flex-grow border h-full w-full flex items-center justify-center">
+                  <h1 className="text-3xl">404 Page Not Found!</h1>
+                </div>
+              }
+            />
+
+          </Routes>
+
+        </div>
 
       </Context_API.Provider>
 
       <Footer />
 
-    </>
+    </div>
 
   );
 

@@ -29,37 +29,41 @@ function Cart_Amount() {
 
     return (
 
-        <div className="cart-amount h-auto w-1/2 flex flex-col items-stretch justify-center gap-3">
+        <div className="cart-amount h-auto w-[40%] flex flex-col items-stretch justify-center gap-3">
 
-            <h1 className="text-center text-3xl my-5">Cart Amount</h1>
+            <h1 className="text-3xl mb-5">Cart Amount</h1>
 
-            <div className="cart-amount-box h-auto text-center rounded-lg bg-blue-700 text-white p-7">
+            <div className="cart-amount-box h-auto text-center rounded-lg bg-white p-7 shadow-xl">
 
-                <div className="mb-5 flex items-center justify-center gap-1">
+                <div className="mb-5 flex items-center justify-between">
 
-                    <p>Total Amount :</p>
+                    <span>Total Amount :</span>
 
-                    <p className="font-bold">{total_amount} USD</p>
-
-                </div>
-
-                <div className="mb-5 flex items-center justify-center gap-1">
-
-                    <p>Total Discount :</p>
-
-                    <p className="font-bold">{discount_amount} USD</p>
+                    <span>{total_amount} USD</span>
 
                 </div>
 
-                <div className="mb-5 flex items-center justify-center gap-1">
+                <div className="mb-5 flex items-center justify-between">
 
-                    <p>Net Amount :</p>
+                    <span>Total Discount (25%) :</span>
 
-                    <p className="font-bold">{net_amount} USD</p>
+                    <span>{discount_amount} USD</span>
 
                 </div>
 
-                <button className="place-order-button rounded-lg h-auto w-1/2 m-auto p-2 bg-red-500 hover:bg-red-600">Place Order</button>
+                <hr />
+
+                <div className="my-5 flex items-center justify-between">
+
+                    <span>Net Amount :</span>
+
+                    <span className="font-bold">{net_amount} USD</span>
+
+                </div>
+
+                <button className="place-order-button rounded-lg h-auto w-full m-auto p-2 text-white bg-gradient-to-r from-rose-500 to-violet-500 enabled:hover:bg-red-600 transition enabled:hover:-translate-y-1 enabled:hover:shadow-xl disabled:opacity-50 disabled:from-slate-400 disabled:to-slate-400 disabled:cursor-not-allowed" disabled={cart.length === 0}>Place Order</button>
+
+                <p className="text-center text-xs mt-5">You save <span className="font-semibold text-red-500">${discount_amount}</span> with this order.</p>
 
             </div>
 

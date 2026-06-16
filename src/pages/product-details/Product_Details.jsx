@@ -21,7 +21,7 @@ function Product_Details() {
 
     return (
 
-        <div className={`h-auto w-full m-auto ${light_mode ? "bg-red-100" : "bg-red-300"} flex items-center justify-start gap-5 p-10`}>
+        <div className={`product-details-box flex-grow h-full w-full m-auto p-10 ${light_mode ? "bg-gray-100" : "bg-gray-300"} flex items-start justify-center gap-5`}>
 
             <Product_Images current_product={current_product} />
 

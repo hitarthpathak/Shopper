@@ -96,99 +96,65 @@ function Product_Data({ current_product }) {
 
     return (
 
-        <div className="product-data-box h-[auto] w-[70%] flex flex-col items-start justify-start gap-3">
+        <div className={`product-data-box h-[auto] w-[70%] flex flex-col items-start justify-start gap-5 ${light_mode ? "text-black" : "text-black"}`}>
 
-            <div className="h-auto w-full flex items-center justify-start gap-3">
+            <h1 className="text-red-500">{display_category.toUpperCase()}</h1>
 
-                <div className="rounded-3xl h-auto w-[20%] bg-blue-500 p-3 text-center">Product Name</div>
+            <b><h1 className="text-3xl">{current_product.product_name.toUpperCase()}</h1></b>
 
-                <div className="rounded-3xl h-auto w-[80%] bg-blue-500 p-3 text-center">{current_product.product_name}</div>
+            <div className="h-6 w-auto flex align-center justify-center gap-2">
 
-            </div>
+                <div className="h-full w-auto p-0.5 flex align-center justify-center gap-1">
 
-            <div className="h-auto w-full flex items-center justify-start gap-3">
+                    <img className="star-icon h-full" src={Star_Icon} alt="Image Not Available" />
 
-                <div className="rounded-3xl h-auto w-[20%] bg-blue-500 p-3 text-center">Product Description</div>
+                    <img className="star-icon h-full" src={Star_Icon} alt="Image Not Available" />
 
-                <div className="rounded-3xl h-auto w-[80%] bg-blue-500 p-3 text-center">{current_product.product_description}</div>
+                    <img className="star-icon h-full" src={Star_Icon} alt="Image Not Available" />
 
-            </div>
+                </div>
 
-            <div className="h-auto w-full flex items-center justify-start gap-3">
-
-                <div className="rounded-3xl h-auto w-[20%] bg-blue-500 p-3 text-center">Category</div>
-
-                <div className="rounded-3xl h-auto w-[80%] bg-blue-500 p-3 text-center">{display_category}</div>
+                <p className="h-full w-auto">By {current_product.seller_name}</p>
 
             </div>
 
-            <div className="h-auto w-full flex items-center justify-start gap-3">
+            <p className="h-auto w-auto">{current_product.product_description}</p>
 
-                <div className="rounded-3xl h-auto w-[20%] bg-blue-500 p-3 text-center">Price</div>
+            <div className="rounded-2xl h-auto w-full p-5 space-y-3 bg-white shadow-xl">
 
-                <div className="rounded-3xl h-auto w-[80%] bg-blue-500 p-3 text-center">
+                <div className="h-auto w-full flex items-center justify-between">
 
-                    <span className="old-price font-bold line-through mr-3">{current_product.old_price}</span>
+                    <span className="text-lg font-semibold text-slate-950">${current_product.new_price}</span>
 
-                    <span>{current_product.new_price}</span>
+                    <span className="line-through text-slate-500 text-sm">${current_product.old_price}</span>
+
+                </div>
+
+                <div className="h-1 w-full rounded-full bg-slate-200">
+
+                    <div className="h-full w-1/3 rounded-full bg-gradient-to-r from-rose-400 to-rose-500" />
 
                 </div>
 
             </div>
 
-            <div className="h-auto w-full flex items-center justify-start gap-3">
+            <div className="rounded-2xl h-auto w-full p-5 space-y-3 bg-white shadow-xl">
 
-                <div className="rounded-3xl h-auto w-[20%] bg-blue-500 p-3 text-center">Seller Name</div>
+                <p className="font-semibold">Quantity :</p>
 
-                <div className="rounded-3xl h-auto w-[80%] bg-blue-500 p-3 text-center">{current_product.seller_name}</div>
+                <div className="border border-slate-300 rounded-2xl bg-slate-50 p-1 inline-flex items-center justify-center">
 
-            </div>
+                    <button className="rounded-full h-auto w-auto px-3 py-2 hover:bg-slate-100" onClick={decrease_quantity}>−</button>
 
-            <div className="h-auto w-full flex items-center justify-start gap-3">
+                    <input className="outline-none rounded-full h-auto w-13 px-3 py-2 text-center font-semibold" type="number" value={quantity} readOnly={true} />
 
-                <div className="rounded-3xl h-auto w-[20%] bg-blue-500 p-3 text-center">Ratings</div>
-
-                <div className="rounded-3xl h-auto w-[80%] bg-blue-500 p-3 flex align-center justify-center gap-2">
-
-                    <img className="star-icon h-4" src={Star_Icon} alt="Image Not Available" />
-
-                    <img className="star-icon h-4" src={Star_Icon} alt="Image Not Available" />
-
-                    <img className="star-icon h-4" src={Star_Icon} alt="Image Not Available" />
+                    <button className="rounded-full h-auto w-auto px-3 py-2 hover:bg-slate-100" onClick={increase_quantity}>+</button>
 
                 </div>
 
             </div>
 
-            <div className="h-auto w-full flex items-center justify-start gap-3">
-
-                <div className="rounded-3xl h-auto w-[20%] bg-blue-500 p-3 text-center">Quantity</div>
-
-                <div className="rounded-3xl h-auto w-[80%] bg-blue-500 p-3 text-center">
-
-                    <div className="quantity-box flex items-center justify-center gap-1">
-
-                        <div className="p-1 cursor-pointer" onClick={increase_quantity}>
-
-                            <img className="h-5" src={Upper_Arrow} alt="Image Not Available" />
-
-                        </div>
-
-                        <input className={`[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none quantity outline-none h-5 w-7 text-center ${light_mode ? "text-black" : "text-black"}`} type="number" value={quantity} readOnly={true} />
-
-                        <div className="p-1 cursor-pointer" onClick={decrease_quantity}>
-
-                            <img className="h-5" src={Lower_Arrow} alt="Image Not Available" />
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <button className="add-to-cart-button rounded-lg m-auto mt-5 p-2 bg-red-500 hover:bg-red-600" onClick={add_to_cart}>{already_in_cart ? "Added To Cart" : "Add To Cart"}</button>
+            <button className="add-to-cart-button rounded-2xl h-auto w-full m-auto p-2 text-white bg-gradient-to-r from-rose-500 to-violet-500 hover:bg-red-600 transition hover:-translate-y-1 hover:shadow-xl" onClick={add_to_cart}>{already_in_cart ? "Added To Cart" : "Add To Cart"}</button>
 
         </div>
 

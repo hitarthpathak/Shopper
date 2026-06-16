@@ -6,7 +6,7 @@ function Home() {
 
     return (
 
-        <>
+        <div className="home-page flex-grow">
 
             <Introduction />
 
@@ -18,7 +18,7 @@ function Home() {
 
             <Offer />
 
-        </>
+        </div>
 
     );
 

@@ -45,9 +45,9 @@ function Cart_List() {
 
     return (
 
-        <div className="cart-list h-auto w-1/2 flex flex-col items-stretch justify-center gap-3">
+        <div className="cart-list h-auto w-[60%] flex flex-col items-stretch justify-center gap-3">
 
-            <h1 className="text-center text-3xl my-5">Cart Items</h1>
+            <h1 className="text-3xl mb-5">Cart Items</h1>
 
             {
 
@@ -57,7 +57,11 @@ function Cart_List() {
 
                     (
 
-                        <h1 className="empty-cart text-center rounded-lg bg-blue-700 text-white p-1">Cart Is Empty!</h1>
+                        <div className="product-box rounded-lg bg-white p-12 h-auto w-full flex items-center justify-center shadow-xl">
+
+                            <h1 className="empty-cart">Cart Is Empty!</h1>
+
+                        </div>
 
                     )
 
@@ -67,49 +71,49 @@ function Cart_List() {
 
                         cart.map((product) => (
 
-                            <div className="product-box rounded-lg bg-blue-700 text-white p-1 h-[15rem] w-full flex items-center justify-center" key={product.id}>
+                            <div className="product-box rounded-lg bg-white p-3 h-auto w-full flex items-center justify-center shadow-xl" key={product.id}>
 
-                                <div className="border border-white product-image-box rounded-lg bg-blue-700 text-white p-1 h-full w-[25%]">
+                                <div className="border border-white product-image-box rounded-lg h-auto w-[7rem]">
 
                                     <Link to={`/product-details/${product.id}`}>
 
-                                        <img src={product.product_image} alt={product.product_name} className="rounded-lg h-full w-auto m-auto" />
+                                        <img src={product.product_image} alt={product.product_name} className="rounded-lg h-auto w-full m-auto" />
 
                                     </Link>
 
                                 </div>
 
-                                <div className="product-data-box rounded-lg bg-blue-700 text-white h-full w-[75%] p-3 flex flex-col items-start justify-start gap-3">
+                                <div className="product-data-box rounded-lg h-full w-[75%] p-3 flex flex-col items-start justify-start gap-3">
 
-                                    <p>Product Name : {product.product_name}</p>
+                                    <p>{product.product_name}</p>
 
-                                    <p>Product Category : {product.category.charAt(0).toUpperCase() + product.category.slice(1)}</p>
+                                    <p>{product.category.charAt(0).toUpperCase() + product.category.slice(1)}</p>
 
-                                    <p>Product Price : <span className="old-price line-through">${product.old_price}</span> <span className="new-price font-bold">${product.new_price}</span></p>
+                                    <div className="h-auto w-full flex items-center justify-between">
 
-                                    <div className="quantity-box flex items-center justify-center gap-1">
+                                        <p className="h-auto w-auto flex items-center justify-center gap-2">
 
-                                        <p>Product Quantity :</p>
+                                            <span className="old-price line-through">${product.old_price}</span>
 
-                                        <div className="p-1 cursor-pointer" onClick={() => increase_quantity(product.id)}>
+                                            <span className="new-price font-bold">${product.new_price}</span>
 
-                                            <img className="h-5" src={Upper_Arrow} alt="Image Not Available" />
+                                        </p>
 
-                                        </div>
+                                        <div className="border border-slate-300 rounded-2xl bg-slate-50 p-1 inline-flex items-center justify-center">
 
-                                        <input className={`[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none quantity outline-none h-5 w-7 text-center ${light_mode ? "text-black" : "text-black"}`} type="number" value={product.quantity} readOnly={true} />
+                                            <button className="rounded-full h-auto w-auto px-3 py-2 hover:bg-slate-100" onClick={() => decrease_quantity(product.id)}>−</button>
 
-                                        <div className="p-1 cursor-pointer" onClick={() => decrease_quantity(product.id)}>
+                                            <input className="outline-none rounded-full h-auto w-[3rem] px-3 py-2 text-center font-semibold" type="number" value={product.quantity} readOnly={true} />
 
-                                            <img className="h-5" src={Lower_Arrow} alt="Image Not Available" />
+                                            <button className="rounded-full h-auto w-auto px-3 py-2 hover:bg-slate-100" onClick={() => increase_quantity(product.id)}>+</button>
 
                                         </div>
 
                                     </div>
 
-                                    <button className="add-to-cart-button rounded-lg p-2 bg-red-500 hover:bg-red-600" onClick={() => remove_product(product.id)}>Remove Product</button>
-
                                 </div>
+
+                                <button className="add-to-cart-button rounded-lg h-[7rem] w-auto p-2 bg-red-100 hover:bg-red-300" onClick={() => remove_product(product.id)}>Remove Product</button>
 
                             </div>
 

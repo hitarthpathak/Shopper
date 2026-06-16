@@ -7,9 +7,9 @@ function Footer() {
 
     return (
 
-        <div className="footer-box h-[15rem] w-full bg-gray-900 text-white flex flex-col items-center justify-evenly p-5">
+        <div className="footer-box h-auto w-full bg-gray-900 text-white p-10 text-center flex flex-col items-center justify-center">
 
-            <div className="e-commerce flex items-center justify-center gap-3">
+            <div className="e-commerce my-3 flex items-center justify-center gap-3">
 
                 <img className="icon h-8" src={Icon} alt="Image Not Available" />
 
@@ -17,7 +17,7 @@ function Footer() {
 
             </div>
 
-            <div className="socials flex items-center justify-center gap-3">
+            <div className="socials my-3 flex items-center justify-center gap-3">
 
                 <img className="social-icon rounded-full h-5 cursor-pointer" src={Instagram} alt="Image Not Available" />
 
@@ -27,7 +27,7 @@ function Footer() {
 
             </div>
 
-            <span className="creator cursor-pointer hover:underline" onClick={() => window.open("https://hitarthpathak.github.io/", "_blank")}>© Hitarth Pathak</span>
+            <span className="creator my-3 cursor-pointer hover:underline" onClick={() => window.open("https://hitarthpathak.github.io/", "_blank")}>© Hitarth Pathak</span>
 
         </div>
 

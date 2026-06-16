@@ -26,7 +26,7 @@ function Navbar() {
 
     return (
 
-        <div className="navbar h-20 w-full px-5 flex items-center justify-between">
+        <div className={`navbar h-20 w-full px-5 flex items-center justify-between sticky top-0 z-50 ${light_mode ? "bg-white text-black" : "bg-black text-white"}`}>
 
             <Link to={"/"}>
 
@@ -44,19 +44,19 @@ function Navbar() {
 
                 <NavLink to={"/men-category"} className={({ isActive }) => isActive ? "text-red-700 font-bold" : "text-black-700"}>
 
-                    <li className="nav-link h-full w-auto flex items-center justify-center">MEN</li>
+                    <li className="nav-link h-full w-auto flex items-center justify-center hover:underline">MEN</li>
 
                 </NavLink>
 
                 <NavLink to={"/women-category"} className={({ isActive }) => isActive ? "text-red-700 font-bold" : "text-black-700"}>
 
-                    <li className="nav-link h-full w-auto flex items-center justify-center">WOMEN</li>
+                    <li className="nav-link h-full w-auto flex items-center justify-center hover:underline">WOMEN</li>
 
                 </NavLink>
 
                 <NavLink to={"/kids-category"} className={({ isActive }) => isActive ? "text-red-700 font-bold" : "text-black-700"}>
 
-                    <li className="nav-link h-full w-auto flex items-center justify-center">KIDS</li>
+                    <li className="nav-link h-full w-auto flex items-center justify-center hover:underline">KIDS</li>
 
                 </NavLink>
 
@@ -78,7 +78,7 @@ function Navbar() {
 
                     <div className="cart-box h-full w-auto flex items-center justify-center">
 
-                        <img className="cart-icon h-14 cursor-pointer" src={Cart_Icon} alt="Image Not Available" />
+                        <img className="cart-icon rounded-full h-14 cursor-pointer" src={Cart_Icon} alt="Image Not Available" />
 
                         <span className="cart-count rounded-full h-5 w-5 flex items-center justify-center relative right-5 bottom-3 bg-red-500 text-white">{cart.length}</span>
 

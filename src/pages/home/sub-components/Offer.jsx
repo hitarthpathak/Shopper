@@ -15,13 +15,13 @@ function Offer() {
             return;
         }
         else {
-            alert("Offers Are Not Available Right Now!");
+            alert("Invalid Coupon Code!");
         }
     };
 
     return (
 
-        <div className={`introduction-box rounded-lg h-auto w-[80%] mt-7 mb-12 m-auto ${light_mode ? "bg-red-100" : "bg-red-300"} flex items-center justify-center p-10`}>
+        <div className={`introduction-box rounded-lg h-auto w-[80%] my-12 m-auto ${light_mode ? "bg-red-100" : "bg-red-300"} flex items-center justify-center p-10`}>
 
             <div className="left h-[20rem] w-1/2 pt-20 text-black flex flex-col items-center justify-start gap-20">
 
